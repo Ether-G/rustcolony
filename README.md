@@ -4,6 +4,8 @@ A visual ecosystem simulation featuring autonomous entities with complex behavio
 
 ![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
 
+https://youtu.be/IlihsOJ06CY
+
 ## Overview
 
 This project implements a real-time colony simulation where different entity types interact within a dynamic ecosystem. The simulation features gatherers that seek resources, predators that hunt gatherers, and resources that regenerate over time.
