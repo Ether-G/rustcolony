@@ -1,0 +1,88 @@
+graph TB
+    subgraph "Main Application Loop"
+        A[main.rs] --> B[Application Struct]
+        B --> C[Game Loop]
+        C --> D[Update Phase]
+        C --> E[Render Phase]
+        C --> F[Input Handling]
+        C --> G[Window Events]
+    end
+    
+    subgraph "Simulation System"
+        D --> H[Simulation Struct]
+        H --> I[Entity Manager]
+        I --> J[Vec&lt;Entity&gt;]
+        J --> K[Gatherer Entities]
+        J --> L[Resource Entities]
+        J --> M[Predator Entities]
+        
+        H --> N[World State]
+        N --> O[World Boundaries]
+        N --> P[Time Counter]
+        
+        H --> Q[Behavior System]
+        Q --> R[Movement Logic]
+        Q --> S[Interaction Logic]
+        Q --> T[Lifecycle Logic]
+    end
+    
+    subgraph "Entity Data Structures"
+        U[Entity Struct] --> V[id: u64]
+        U --> W[position: Position]
+        U --> X[energy: u32]
+        U --> Y[entity_type: EntityType]
+        U --> Z[color: u32]
+        
+        AA[EntityType Enum] --> BB[Gatherer]
+        AA --> CC[Resource]
+        AA --> DD[Predator]
+        
+        EE[Position Struct] --> FF[x: i32]
+        EE --> GG[y: i32]
+    end
+    
+    subgraph "Rendering System"
+        E --> HH[Renderer Struct]
+        HH --> II[Pixel Buffer Vec&lt;u32&gt;]
+        HH --> JJ[Window Dimensions]
+        HH --> KK[Drawing Functions]
+        
+        KK --> LL[clear_buffer]
+        KK --> MM[draw_entity]
+        KK --> NN[draw_background]
+        
+        HH --> OO[minifb Window]
+        OO --> PP[Display Output]
+    end
+    
+    subgraph "Memory Management Concepts"
+        QQ[Ownership] --> RR[Simulation owns Vec&lt;Entity&gt;]
+        QQ --> SS[Application owns Renderer]
+        QQ --> TT[Renderer owns Buffer]
+        
+        UU[Borrowing] --> VV[&amp;mut for updates]
+        UU --> WW[&amp; for rendering]
+        
+        XX[Lifetimes] --> YY[WorldView&lt;'a&gt;]
+        XX --> ZZ[Entity references]
+    end
+    
+    %% Connections between systems
+    I --> U
+    U --> AA
+    U --> EE
+    H -.-> HH
+    J -.-> II
+    
+    %% Styling
+    classDef mainApp fill:#e1f5fe,stroke:#01579b,color:black,font-weight:bold
+    classDef simulation fill:#fff3e0,stroke:#e65100,color:black,font-weight:bold
+    classDef entity fill:#f3e5f5,stroke:#4a148c,color:black,font-weight:bold
+    classDef rendering fill:#e8f5e8,stroke:#1b5e20,color:black,font-weight:bold
+    classDef memory fill:#fce4ec,stroke:#880e4f,color:black,font-weight:bold
+    
+    class A,B,C,D,E,F,G mainApp
+    class H,I,J,K,L,M,N,O,P,Q,R,S,T simulation
+    class U,V,W,X,Y,Z,AA,BB,CC,DD,EE,FF,GG entity
+    class HH,II,JJ,KK,LL,MM,NN,OO,PP rendering
+    class QQ,RR,SS,TT,UU,VV,WW,XX,YY,ZZ memory
