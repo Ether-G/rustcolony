@@ -1,20 +1,21 @@
 # 🦀 Rust Colony Simulation
 
-A visual ecosystem simulation featuring autonomous entities with complex behavioral patterns and resource management.
+An ecosim written in rust.
 
 ![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
 
+## Clone and build demo (:
 https://youtu.be/IlihsOJ06CY
 
 ## Overview
 
-This project implements a real-time colony simulation where different entity types interact within a dynamic ecosystem. The simulation features gatherers that seek resources, predators that hunt gatherers, and resources that regenerate over time.
+This simulation is pretty simple. There are: Gatherers that seek resources, predators that hunt gatherers, and resources that regenerate over time.
 
 ## Features
 
-- Real-time visual simulation with 60 FPS rendering
+- Real-time simulation
 - Three distinct entity types with unique behaviors
-- Dynamic ecosystem with energy-based interactions
+- An ecosystem with energy-based interactions
 - Automatic population management and resource spawning
 - Interactive controls for manual entity spawning
 
@@ -27,9 +28,9 @@ This project implements a real-time colony simulation where different entity typ
 ### Running the Simulation
 
 ```bash
-git clone <your-repo-url>
+git clone git@github.com:Ether-G/rustcolony.git
 cd rustcolony
-cargo run --release
+cargo run
 ```
 
 ### Controls
@@ -61,9 +62,7 @@ cargo run --release
 ## Technical Implementation
 
 ### Architecture
-- **Entity-Component System**: Modular entity design with behavior-specific updates
-- **Separation of Concerns**: Distinct simulation, rendering, and input systems
-- **Memory Efficient**: Vec-based entity storage with automatic cleanup
+- See Mermaid Diagram in Repo Head (:
 
 ### Dependencies
 - **minifb**: Framebuffer graphics library for cross-platform rendering
@@ -125,5 +124,6 @@ Contributions are welcome. Areas for enhancement:
 - Network multiplayer support
 
 ## License
+Take my code and do whatever ya want with it (:
 
 MIT License - See LICENSE file for details. 
